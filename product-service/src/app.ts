@@ -1,12 +1,8 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+import { ProductRouter } from './Router/Router';
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-app.get('/', (req:Request, res:Response) => {
-    const life = 5;
-    res.send(life.toString());
-})
 
 const server = app.listen(port, () =>{
     console.log('Server running at http://localhost:3000. To close the port Ctrl + C');
@@ -19,5 +15,7 @@ process.on('SIGINT', () => {
       process.exit(0);
     });
   });
+
+app.use("/product", ProductRouter)
 
 export {app};
