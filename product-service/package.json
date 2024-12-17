@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/app.ts",
-    "dev": "nodemon ./src/app.ts",
+    "start": "ts-node ./src/server.ts",
+    "dev": "nodemon ./src/server.ts",
     "build": "tcs",
-    "serve": "node dist/app.js"
+    "serve": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
