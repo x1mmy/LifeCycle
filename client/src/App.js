@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './Navbar';
+import Dashboard from './MainDashboard';
+import LandingPage from './LandingPage';
+
+function Home() {
+    return <h1>Home Page</h1>;
+}
+
+function About() {
+    return <h1>About Page</h1>;
+}
+
+// Create a wrapper component to handle navbar visibility
+function AppContent() {
+    const location = useLocation();
+    const showNavbar = location.pathname !== '/landing';
+
+    return (
+        <div className="App">
+            {showNavbar && <Navbar />}
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/landing" element={<LandingPage />} />
+            </Routes>
+        </div>
+    );
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <AppContent />
+        </Router>
+    );
 }
 
 export default App;
