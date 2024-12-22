@@ -5,7 +5,7 @@ function LandingPage() {
         <div className="App">
             <h1 className='Title'>Landing Page</h1>
             <p>This is the landing page</p>
-            <p>Follow the wireframe mockup i created and have fun :)</p>
+            <p>Follow the wireframe mockup i created and have fun :) yes sir</p>
 
         </div>
     );
