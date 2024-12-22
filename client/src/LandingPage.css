@@ -1,0 +1,12 @@
+.Title{
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: red;
+}
+
+.Title:hover{
+    color: blue;
+    transition: 100ms;
+}
