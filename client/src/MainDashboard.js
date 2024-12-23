@@ -11,7 +11,9 @@ function Dashboard() {
                 <p>
                     this is the main dashboard
                 </p>
+
             </div>
+        <button onClick={() => window.location.href = '#/products'}>Add Product</button>
         </div>
     );
 }

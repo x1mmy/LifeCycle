@@ -1,0 +1,98 @@
+.products-container {
+    min-height: 100vh;
+    background-color: white;
+}
+
+/* Header Styles */
+
+
+/* Main Content Styles */
+.main-content {
+    padding: 1.5rem;
+}
+
+.actions-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 36rem;
+}
+
+.search-input {
+    width: 87%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding-right: 3rem;
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer;
+}
+
+.add-product-button {
+    margin-left: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9fafb;
+}
+
+.products-table th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-weight: 500;
+    color: #374151;
+    background-color: #f3f4f6;
+}
+
+.products-table td {
+    padding: 1rem 1.5rem;
+    color: #4b5563;
+    background-color: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .actions-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .add-product-button {
+        margin-left: 0;
+    }
+}
