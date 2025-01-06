@@ -46,7 +46,7 @@ nav a:active {
 
 .navbar{
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;
     width: 100%;
 }

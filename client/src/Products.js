@@ -144,6 +144,20 @@ function Products() {
                 >
                     Add Product
                 </button>
+                <button 
+                    className="edit-product-button"
+
+                >
+                    Edit 
+                </button>
+
+                <button 
+                    className="delete-product-button"
+
+                >
+                    Delete 
+                </button>
+                
             </div>
 
             {/* Products Table Section */}
@@ -234,6 +248,7 @@ function Products() {
                                     <option value="Frozen">Frozen</option>
                                     <option value="Shelf">Shelf</option>
                                     <option value="Fridge">Fridge</option>
+                                    <option value="Other">Other</option> 
                                 </select>
                             </div>
                             {/* Modal Action Buttons */}
