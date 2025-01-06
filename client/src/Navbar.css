@@ -33,14 +33,19 @@ nav a:active {
 
 .nav-links{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 30%;
+    justify-content: space-evenly;
+    align-items:stretch; 
+    width: 80%;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    font-size: larger;
+    font-weight: bolder;
 }
 
 .nav-links li:hover{
     color: green;
-    text-decoration: underline;
+
     font-weight: bold;
 }
 
@@ -49,4 +54,10 @@ nav a:active {
     justify-content:center;
     align-items: center;
     width: 100%;
+}
+
+.profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }

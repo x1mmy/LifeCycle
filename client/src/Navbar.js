@@ -2,16 +2,11 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
+
 function Navbar() {
     return (
         <nav className="navbar">
             <ul className='nav-links'>
-                <li>
-                    <Link to="/home">Home</Link>
-                </li>
-                <li>
-                    <Link to="/about">About</Link>
-                </li>
                 <li>
                     <Link to="/">Dashboard</Link>
                 </li>
@@ -19,6 +14,7 @@ function Navbar() {
                     <Link to="/products">Products</Link>
                 </li>
             </ul>
+            <img className='profile-img' src="/images/profileimg.webp" />
         </nav>
     );
 }
