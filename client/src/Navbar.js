@@ -14,7 +14,7 @@ function Navbar() {
                     <Link to="/products">Products</Link>
                 </li>
             </ul>
-            <img className='profile-img' src="/images/profileimg.webp" />
+            <img className='profile-img' src="/images/profileimg.webp" onClick={'./'} />
         </nav>
     );
 }
