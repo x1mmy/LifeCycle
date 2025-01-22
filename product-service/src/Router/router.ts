@@ -9,6 +9,6 @@ router.get("/healthcheck", (req: Request, res: Response) => {
     });
 });
 
-router.get("/test", CreateItem);
+router.post("/test", CreateItem);
 
 export { router as ProductRouter };

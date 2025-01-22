@@ -4,13 +4,13 @@ import { ProdcutModel } from "../Model/product_model";
 
 const CreateItem = asyncHandler(async (req: Request, res: Response) => {
    let newproduct = new ProdcutModel({
-    item_name: "milk",
-    type: "diary",
-    expiry: new Date("2024-12-31"),
+    item_name: req.body,
+    type: req.body,
+    expiry: req.body,
    })
    
     newproduct.save();
-    console.log("product saved");
+    res.send("product saved");
 });
 
 export { CreateItem };
