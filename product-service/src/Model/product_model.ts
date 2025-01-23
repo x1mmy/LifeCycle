@@ -13,4 +13,4 @@ const Productschema = new Schema<product>({
     expiry: {type: Date, required: true},
 })
 
-export const ProdcutModel: Model<product> = model<product>("item", Productschema);
+export const ProductModel: Model<product> = model<product>("item", Productschema);
