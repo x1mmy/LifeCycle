@@ -1,0 +1,63 @@
+nav{
+    background-color: #e2e2e2;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+nav li{
+    list-style: none;
+    color: black;
+
+}
+
+nav a {
+    color: inherit; /* This will make the links inherit the color of their parent element */
+    text-decoration: none; /* This will remove the underline from the links */
+}
+
+nav a:visited {
+    color: inherit; /* This will ensure visited links have the same color */
+}
+
+nav a:hover {
+    color: inherit; /* This will ensure hovered links have the same color */
+}
+
+nav a:active {
+    color: inherit; /* This will ensure active links have the same color */
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items:stretch; 
+    width: 80%;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.nav-links li:hover{
+    color: green;
+
+    font-weight: bold;
+}
+
+.navbar{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

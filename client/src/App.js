@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-d
 import Navbar from './Navbar';
 import Dashboard from './MainDashboard';
 import LandingPage from './LandingPage';
+import Products from './Products';
 
 function Home() {
     return <h1>Home Page</h1>;
@@ -25,6 +26,7 @@ function AppContent() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/landing" element={<LandingPage />} />
+                <Route path="/products" element={<Products />} />
             </Routes>
         </div>
     );
