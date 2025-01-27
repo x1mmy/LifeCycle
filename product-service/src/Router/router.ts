@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { CreateItem } from "../Controller/createItem";
 import { DeleteItem } from "../Controller/deleteItem";
+import { FetchItem } from "../Controller/fetchItems";
 
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.get("/healthcheck", (req: Request, res: Response) => {
 
 router.post("/createItem", CreateItem);
 router.delete("/deleteItem", DeleteItem);
+router.get("/fetchItems", FetchItem);
 
 export { router as ProductRouter };

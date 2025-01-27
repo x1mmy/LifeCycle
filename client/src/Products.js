@@ -65,7 +65,8 @@
 // // Desc: Product table view component
 // ProductsPage.jsx
 // ProductsPage.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./Products.css";
 
 function Products() {
@@ -83,23 +84,28 @@ function Products() {
     type: "",
   });
 
-  // Initial products data - can be replaced with API data
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: "Walter White",
-      type: "Frozen",
-      expiryDate: "23 June 2024",
-      price: "20.00",
-    },
-    {
-      id: 2,
-      name: "Jesse Pinkman",
-      type: "Shelf",
-      expiryDate: "--",
-      price: "15.00",
-    },
-  ]);
+  //Fetches products straight from the database.
+  const [products, setProducts] = useState([]);
+  const [loading, setloading] = useState(true);
+  const [error, setError] = useState(null);
+  //External fetch products code so we can actively reset the fetched list after a event
+  const fetchProducts = async () => {
+    try {
+      //Fetches the data using axios
+      const ProductTable = await axios.get(
+        `${process.env.REACT_APP_API_URL}/product/fetchItems`
+      );
+      setProducts(ProductTable.data);
+      setloading(false);
+    } catch (err) {
+      setError("Failed to fetch data");
+      setloading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   // Handler for checkbox selection in table rows
   const handleCheckboxChange = (productId) => {
@@ -136,6 +142,71 @@ function Products() {
     setFormData({ name: "", expiryDate: "", price: "", type: "" });
   };
 
+  //Delete function that recognises the item_id. Sending it to the backend allowing for deletion. 
+  const deleteData = async () => {
+    if (selectedRows.size === 0) {
+      alert("No products selected for deletion.");
+      return;
+    }
+
+    try {
+      // Convert Set to an array for sending via the request
+      const itemIds = Array.from(selectedRows);
+
+      // Loop through the selected items and send DELETE request for each
+      for (let itemId of itemIds) {
+
+        const response = await axios.delete(
+          `${process.env.REACT_APP_API_URL}/product/deleteItem`,
+          { data: { item_id: String(itemId) } } // Send item_id as part of the body
+        );
+
+        if (response.status === 200 || response.status === 201) {
+          // Filter out the deleted product from the frontend for each successful delete
+          setProducts((prevProducts) =>
+            prevProducts.filter((product) => product.item_id !== itemId)
+          );
+        } else {
+          alert(`Error deleting product with item_id: ${itemId}`);
+          break; // If any delete fails, stop the loop
+        }
+      }
+
+      // Clear the selected rows after deletion
+      setSelectedRows(new Set());
+      alert("Products deleted successfully.");
+
+      fetchProducts();
+    } catch (error) {
+      alert("Failed to delete products. Please try again.");
+    }
+  };
+
+  const addProduct = async () =>{
+    //Collect all data into one object
+    const JSONformat = {
+      item_name: formData.name,
+      type: formData.type,
+      expiry: new Intl.DateTimeFormat('en-US').format(new Date(formData.expiryDate)), 
+      price: Number(formData.price)
+    } 
+    
+    console.log(JSONformat);
+    //Post the product to the backend for saving
+    const saveProduct = await axios.post(`${process.env.REACT_APP_API_URL}/product/createItem`, JSONformat)
+    
+    console.log(saveProduct);
+
+    //Alerting user - Product has been saved
+    if(saveProduct.status === 200 || saveProduct.status === 201){
+      alert("Product saved");
+    }else{
+      alert("Product not saved");
+    }
+
+    fetchProducts();
+  }
+
   return (
     <div className="products-page">
       {/* Search Bar and Add Product Button Section */}
@@ -156,7 +227,9 @@ function Products() {
         </button>
         <button className="edit-product-button">Edit</button>
 
-        <button className="delete-product-button">Delete</button>
+        <button className="delete-product-button" onClick={() => deleteData()}>
+          Delete
+        </button>
       </div>
 
       {/* Products Table Section */}
@@ -175,19 +248,21 @@ function Products() {
             {/* Map through products to create table rows */}
             {products.map((product) => (
               <tr
-                key={product.id}
-                className={selectedRows.has(product.id) ? "selected-row" : ""}
+                key={product.item_id}
+                className={
+                  selectedRows.has(product.item_id) ? "selected-row" : ""
+                }
               >
                 <td>
                   <input
                     type="checkbox"
-                    checked={selectedRows.has(product.id)}
-                    onChange={() => handleCheckboxChange(product.id)}
+                    checked={selectedRows.has(product.item_id)}
+                    onChange={() => handleCheckboxChange(product.item_id)}
                   />
                 </td>
-                <td>{product.name}</td>
+                <td>{product.item_name}</td>
                 <td>{product.type}</td>
-                <td>{product.expiryDate}</td>
+                <td>{product.expiry}</td>
                 <td>${product.price}</td>
               </tr>
             ))}
@@ -259,7 +334,7 @@ function Products() {
                 >
                   CLOSE
                 </button>
-                <button type="submit" className="save-button">
+                <button type="submit" className="save-button" onClick={() => addProduct()}>
                   SAVE
                 </button>
               </div>
