@@ -1,134 +1,153 @@
 
-/* Dashboard.css */
-.dashboard {
-    min-height: 100vh;
-    background-color: #f9fafb;
-  }
-  
 
-  /* Main Content Styles */
-  .main-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+.dashboard-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 2rem;  /* Fixed padding */
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
+  width: 100%;
+}
+
+/* Add media query to maintain padding */
+@media (max-width: 768px) {
+  .dashboard-container {
+      padding: 2rem; /* Keep the same padding on mobile */
   }
-  
-  .team-link {
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #6b7280;
-  }
-  
-  .team-link a {
-    color: #2563eb;
-    text-decoration: underline;
-  }
-  
-  .team-link a:hover {
-    color: #1d4ed8;
-  }
-  
-  .dashboard-title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 2rem;
-  }
-  
-  /* Cards Grid */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  @media (min-width: 768px) {
-    .cards-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  /* Card Styles */
-  .card {
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-  }
-  
-  .card-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .card-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #6b7280;
-  }
-  
-  .card-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #111827;
-    margin-top: 0.25rem;
-  }
-  
-  .card-subtitle {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-top: 0.25rem;
-  }
-  
-  .card-icon {
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  .card-icon.alert {
-    color: #ef4444;
-  }
-  
-  .card-icon.calendar {
-    color: #3b82f6;
-  }
-  
-  .card-icon.package {
-    color: #10b981;
-  }
-  
-  /* Button Styles */
-  .action-buttons {
-    display: flex;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  flex: 1;
+  text-align: left;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.dashboard-subtitle {
+  color: #6b7280;
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-button {
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.action-button.primary {
+  background-color: #18181b;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background-color: #27272a;
+}
+
+.action-button.secondary {
+  background-color: white;
+  color: #18181b;
+  border: 1px solid #e5e7eb;
+}
+
+.action-button.secondary:hover {
+  background-color: #f9fafb;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.metric-card {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.metric-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.metric-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0 0 0.5rem 0;
+}
+
+.metric-value {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  text-align: left;
+}
+
+.metric-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0 0;
+  text-align: left;
+}
+
+.metric-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.metric-icon.alert {
+  color: #ef4444;
+}
+
+.metric-icon.calendar {
+  color: #3b82f6;
+}
+
+.metric-icon.package {
+  color: #10b981;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
     gap: 1rem;
   }
-  
-  .btn {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border: none;
+
+  .header-actions {
+    width: 100%;
   }
-  
-  .btn-primary {
-    background-color: #3b82f6;
-    color: white;
+
+  .action-button {
+    flex: 1;
   }
-  
-  .btn-primary:hover {
-    background-color: #2563eb;
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .btn-secondary {
-    background-color: #f3f4f6;
-    color: #374151;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #e5e7eb;
-  }
+}
