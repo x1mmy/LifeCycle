@@ -1,70 +1,7 @@
-// // Desc: Product table view component
-// import React, { useState } from 'react';
-// import './Products.css';
 
-// function Products() {
-//     // Sample product data - replace with actual data
-//     const [products] = useState([
-//         { name: 'Walter White', type: 'Frozen', expiryDate: '23 June 2024', barcodeNum: '000000000001' },
-//         { name: 'Jesse Pinkman', type: 'Shelf', expiryDate: '--', barcodeNum: 'true' },
-//         { name: 'Hank Schrader', type: 'Fridge', expiryDate: '--', barcodeNum: 'true' },
-//         // Add more products as needed
-//     ]);
-
-//     return (
-//         <div className="products-container">
-
-//             {/* Main Content */}
-//             <main className="main-content">
-//                 {/* Search and Add Product */}
-//                 <div className="actions-container">
-//                     <div className="search-container">
-//                         <input
-//                             type="text"
-//                             placeholder="Enter your text here"
-//                             className="search-input"
-//                         />
-//                         <button className="search-button">
-//                             🔍
-//                         </button>
-//                     </div>
-//                     <button className="add-product-button">
-//                         Add Product
-//                     </button>
-//                 </div>
-
-//                 {/* Products Table */}
-//                 <div className="table-container">
-//                     <table className="products-table">
-//                         <thead>
-//                             <tr>
-//                                 <th>Name</th>
-//                                 <th>Type</th>
-//                                 <th>Expiry Date</th>
-//                                 <th>Barcode Num?</th>
-//                             </tr>
-//                         </thead>
-//                         <tbody>
-//                             {products.map((product, index) => (
-//                                 <tr key={index}>
-//                                     <td>{product.name}</td>
-//                                     <td>{product.type}</td>
-//                                     <td>{product.expiryDate}</td>
-//                                     <td>{product.barcodeNum}</td>
-//                                 </tr>
-//                             ))}
-//                         </tbody>
-//                     </table>
-//                 </div>
-//             </main>
-//         </div>
-//     );
-// }
-
-// export default Products;
 // // Desc: Product table view component
 // ProductsPage.jsx
-// ProductsPage.jsx
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Products.css";
@@ -107,7 +44,8 @@ function Products() {
     fetchProducts();
   }, []);
 
-  // Handler for checkbox selection in table rows
+  // Handler for checkbox selection in table rows 
+  // - important for the delete function
   const handleCheckboxChange = (productId) => {
     const newSelected = new Set(selectedRows);
     if (newSelected.has(productId)) {
@@ -283,7 +221,7 @@ function Products() {
                   name="name"
                   placeholder="Product Name"
                   value={formData.name}
-                  onChange={handleInputChange}
+                  onChange={handleInputChange} //This is the handler Modal input boxes
                   required
                 />
               </div>
@@ -295,7 +233,7 @@ function Products() {
                   name="expiryDate"
                   placeholder="Expiry Date"
                   value={formData.expiryDate}
-                  onChange={handleInputChange}
+                  onChange={handleInputChange} //This is the handler Modal input boxes
                   required
                 />
               </div>
@@ -306,7 +244,7 @@ function Products() {
                   name="price"
                   placeholder="Price"
                   value={formData.price}
-                  onChange={handleInputChange}
+                  onChange={handleInputChange} //This is the handler Modal input boxes
                   required
                 />
               </div>
@@ -315,7 +253,7 @@ function Products() {
                 <select
                   name="type"
                   value={formData.type}
-                  onChange={handleInputChange}
+                  onChange={handleInputChange} //This is the handler Modal input boxes
                   required
                 >
                   <option value="">Select Type</option>

@@ -1,5 +1,5 @@
 import './LandingPage.css';  // Add this at the top of your file to link the styles
-
+import React from 'react';
 function LandingPage() {
     return (
         <div className="App">

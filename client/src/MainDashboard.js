@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Desc: Main Dashboard component
 import './App.css';
 import { Link, Navigate } from 'react-router-dom';  // Add this import

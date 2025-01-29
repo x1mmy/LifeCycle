@@ -1,63 +1,108 @@
-nav{
-    background-color: #e2e2e2;
-    color: white;
-    padding: 10px;
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #e5e7eb;
+    backdrop-filter: blur(8px);
+}
+
+.navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none;
 }
 
-nav li{
-    list-style: none;
-    color: black;
-
-}
-
-nav a {
-    color: inherit; /* This will make the links inherit the color of their parent element */
-    text-decoration: none; /* This will remove the underline from the links */
-}
-
-nav a:visited {
-    color: inherit; /* This will ensure visited links have the same color */
-}
-
-nav a:hover {
-    color: inherit; /* This will ensure hovered links have the same color */
-}
-
-nav a:active {
-    color: inherit; /* This will ensure active links have the same color */
-}
-
-.nav-links{
+.navbar-left {
     display: flex;
-    justify-content: space-evenly;
-    align-items:stretch; 
-    width: 80%;
-    padding-left: 50px;
-    padding-right: 50px;
-
-    font-size: larger;
-    font-weight: bolder;
-}
-
-.nav-links li:hover{
-    color: green;
-
-    font-weight: bold;
-}
-
-.navbar{
-    display: flex;
-    justify-content:center;
     align-items: center;
-    width: 100%;
+    gap: 2rem;
 }
 
-.profile-img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #111827;
+}
+
+.brand-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.brand-name {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #111827;
+}
+
+.nav-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+    background-color: #f3f4f6;
+}
+
+.action-icon {
+    width: 20px;
+    height: 20px;
+    color: #6b7280;
+}
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
 }
