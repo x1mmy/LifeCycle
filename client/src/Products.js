@@ -156,31 +156,23 @@ function Products() {
           <div className="search-container">
             <input
               type="text"
-              placeholder="Search products..."
+              placeholder="Enter your product name here"
               className="search-input"
             />
             <Search className="search-icon" />
           </div>
+
           <button
-            className="action-button secondary"
-            onClick={() => {/* handle edit */}}
+            className="action-button primary"
+            onClick={() => setIsModalOpen(true)}
           >
-            <Edit2 className="button-icon" />
-            Edit
+            Add Product
           </button>
           <button
             className="action-button danger"
             onClick={deleteData}
           >
-            <Trash2 className="button-icon" />
             Delete
-          </button>
-          <button
-            className="action-button primary"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <Plus className="button-icon" />
-            Add Product
           </button>
         </div>
       </div>
