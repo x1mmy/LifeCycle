@@ -1,81 +1,117 @@
-// This is the main app nav bar component
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import React, { useState,useEffect, useRef } from 'react';
 
-import { Package, LayoutDashboard, Bell, Settings } from "lucide-react"
+import { Link } from "react-router-dom"
+import "./Navbar.css"
+import React, { useState, useEffect, useRef } from "react"
+import { Package, LayoutDashboard, Bell, Settings, Menu, X } from "lucide-react"
 
 function Navbar() {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const dropdownRef = useRef(null)
+  const mobileMenuRef = useRef(null)
 
-    //This is the state for the settings menu
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const toggleSettings = () => {
+    setIsSettingsOpen(!isSettingsOpen)
+  }
 
-     // This is the reference for the settings dropdown
-    const dropdownRef = useRef(null);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
-    //This is the function to toggle the settings menu
-    const toggleSettings = () => { 
-        setIsSettingsOpen(!isSettingsOpen);
-    };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsSettingsOpen(false)
+      }
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target) &&
+        !event.target.closest(".burger-menu")
+      ) {
+        setIsMobileMenuOpen(false)
+      }
+    }
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            // This is the function to close the settings menu if the user clicks outside of it
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsSettingsOpen(false); // This sets the settings menu to false
-            }
-        };
-        // This is the event listener for the click outside of the settings menu
-        document.addEventListener('click', handleClickOutside); 
-        return () => document.removeEventListener('click', handleClickOutside);
-    }, []);
+    document.addEventListener("click", handleClickOutside)
+    return () => document.removeEventListener("click", handleClickOutside)
+  }, [])
 
-    return (
-        <nav className='navbar'>
-            <div className="navbar-container">
-                <div className="navbar-left">
-                    <Link to="/" className="navbar-brand">
-                        <Package className="brand-icon" />
-                        <span className="brand-name">LifeCycle</span>
-                    </Link>
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-left">
+          <Link to="/" className="navbar-brand">
+            <Package className="brand-icon" />
+            <span className="brand-name">LifeCycle</span>
+          </Link>
 
-                    <div className="nav-links">
-                        <Link to="/" className="nav-link">
-                            <LayoutDashboard className="nav-icon" />
-                                Dashboard
-                        </Link>
-                        <Link to="/products" className="nav-link">
-                            <Package className="nav-icon" />
-                                Products
-                        </Link>
-                    </div>
+          {/* Desktop Navigation */}
+          <div className="nav-links">
+            <Link to="/" className="nav-link">
+              <LayoutDashboard className="nav-icon" />
+              Dashboard
+            </Link>
+            <Link to="/products" className="nav-link">
+              <Package className="nav-icon" />
+              Products
+            </Link>
+          </div>
+        </div>
+
+        <div className="navbar-actions">
+          {/* Mobile Menu Button */}
+          <button className="burger-menu" onClick={toggleMobileMenu} aria-label="Toggle menu">
+            {isMobileMenuOpen ? <X className="action-icon" /> : <Menu className="action-icon" />}
+          </button>
+
+          {/* Desktop Actions */}
+          <div className="desktop-actions">
+            <button className="icon-button" aria-label="Notifications">
+              <Bell className="action-icon" />
+            </button>
+            <div className="settings-container" ref={dropdownRef}>
+              <button className="icon-button" aria-label="Settings" onClick={toggleSettings}>
+                <Settings className="action-icon" />
+              </button>
+              {isSettingsOpen && (
+                <div className="settings-dropdown">
+                  <Link to="/settings" className="dropdown-item">
+                    Settings
+                  </Link>
+                  <Link to="/profile" className="dropdown-item">
+                    Profile
+                  </Link>
+                  <Link to="/logout" className="dropdown-item">
+                    Logout
+                  </Link>
                 </div>
-
-                <div className="navbar-actions">
-                    <button className="icon-button" aria-label="Notifications">
-                        <Bell className="action-icon" />
-                    </button>
-                    <div className="settings-container" ref={dropdownRef}> {/* This is the reference for the settings dropdown */}
-
-                        <button 
-                            className="icon-button" 
-                            aria-label="Settings"
-                            onClick={toggleSettings}
-                        >
-                            <Settings className="action-icon" />
-                        </button>
-                        {isSettingsOpen && (
-                            <div className="settings-dropdown">
-                                <Link to="/settings" className="dropdown-item">Settings</Link>
-                                <Link to="/profile" className="dropdown-item">Profile</Link>
-                                <Link to="/logout" className="dropdown-item">Logout</Link>
-                            </div>
-                        )}
-                    </div>
-                </div>
+              )}
             </div>
-        </nav>
-    )
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`} ref={mobileMenuRef}>
+        <div className="mobile-menu-content">
+          <Link to="/" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <LayoutDashboard className="nav-icon" />
+            Dashboard
+          </Link>
+          <Link to="/products" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <Package className="nav-icon" />
+            Products
+          </Link>
+          <div className="mobile-divider"></div>
+          <Link to="/settings" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <Settings className="nav-icon" />
+            Settings
+          </Link>
+        </div>
+      </div>
+    </nav>
+  )
 }
 
-export default Navbar;
+export default Navbar
+

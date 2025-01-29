@@ -1,9 +1,9 @@
-
 // // Desc: Product table view component
 // ProductsPage.jsx
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Search, Plus, Edit2, Trash2 } from 'lucide-react'; // Import Lucide icons
 import "./Products.css";
 
 function Products() {
@@ -146,36 +146,52 @@ function Products() {
   }
 
   return (
-    <div className="products-page">
-      {/* Search Bar and Add Product Button Section */}
-      <div className="actions-container">
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Enter your text here"
-            className="search-input"
-          />
-          <button className="search-button">🔍</button>
+    <div className="products-container">
+      <div className="products-header">
+        <div className="header-content">
+          <h1 className="products-title">Products</h1>
+          <p className="products-subtitle">Manage and track your inventory items</p>
         </div>
-        <button
-          className="add-product-button"
-          onClick={() => setIsModalOpen(true)}
-        >
-          Add Product
-        </button>
-        <button className="edit-product-button">Edit</button>
-
-        <button className="delete-product-button" onClick={() => deleteData()}>
-          Delete
-        </button>
+        <div className="header-actions">
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="search-input"
+            />
+            <Search className="search-icon" />
+          </div>
+          <button
+            className="action-button secondary"
+            onClick={() => {/* handle edit */}}
+          >
+            <Edit2 className="button-icon" />
+            Edit
+          </button>
+          <button
+            className="action-button danger"
+            onClick={deleteData}
+          >
+            <Trash2 className="button-icon" />
+            Delete
+          </button>
+          <button
+            className="action-button primary"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <Plus className="button-icon" />
+            Add Product
+          </button>
+        </div>
       </div>
 
-      {/* Products Table Section */}
-      <div className="table-container">
+      <div className="table-card">
         <table className="products-table">
           <thead>
             <tr>
-              <th></th> {/* Checkbox column */}
+              <th className="checkbox-column">
+                <input type="checkbox" />
+              </th>
               <th>Name</th>
               <th>Type</th>
               <th>Expiry Date</th>
@@ -183,15 +199,12 @@ function Products() {
             </tr>
           </thead>
           <tbody>
-            {/* Map through products to create table rows */}
             {products.map((product) => (
               <tr
                 key={product.item_id}
-                className={
-                  selectedRows.has(product.item_id) ? "selected-row" : ""
-                }
+                className={selectedRows.has(product.item_id) ? "selected-row" : ""}
               >
-                <td>
+                <td className="checkbox-column">
                   <input
                     type="checkbox"
                     checked={selectedRows.has(product.item_id)}

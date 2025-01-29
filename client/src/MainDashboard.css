@@ -145,6 +145,7 @@
 
   .action-button {
     flex: 1;
+    padding: .75rem 1rem;
   }
 
   .metrics-grid {

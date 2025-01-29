@@ -176,3 +176,170 @@
         margin: 20px;
     }
 }
+
+.products-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.products-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  text-align: left;
+}
+
+.products-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.products-subtitle {
+  color: #6b7280;
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  padding-left: 2.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  width: 1rem;
+  height: 1rem;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.action-button.primary {
+  background-color: #18181b;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background-color: #27272a;
+}
+
+.action-button.secondary {
+  background-color: white;
+  color: #18181b;
+  border: 1px solid #e5e7eb;
+}
+
+.action-button.secondary:hover {
+  background-color: #f9fafb;
+}
+
+.action-button.danger {
+  background-color: white;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+}
+
+.action-button.danger:hover {
+  background-color: #fef2f2;
+}
+
+.table-card {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table th,
+.products-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.products-table th {
+  background: #f9fafb;
+  font-weight: 500;
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.checkbox-column {
+  width: 40px;
+}
+
+.selected-row {
+  background-color: #f8fafc;
+}
+
+.selected-row:hover {
+  background-color: #f1f5f9;
+}
+
+@media (max-width: 768px) {
+  .products-header {
+    gap: 1rem;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    max-width: none;
+  }
+
+  .table-card {
+    overflow-x: auto;
+  }
+}
