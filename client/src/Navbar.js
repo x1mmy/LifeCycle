@@ -75,9 +75,9 @@ function Navbar() {
               </button>
               {isSettingsOpen && (
                 <div className="settings-dropdown">
-                  <Link to="/settings" className="dropdown-item">
+                  {/* <Link to="/settings" className="dropdown-item">
                     Settings
-                  </Link>
+                  </Link> */}
                   <Link to="/profile" className="dropdown-item">
                     Profile
                   </Link>
@@ -103,7 +103,7 @@ function Navbar() {
             Products
           </Link>
           <div className="mobile-divider"></div>
-          <Link to="/settings" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link to="/profile" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
             <Settings className="nav-icon" />
             Settings
           </Link>

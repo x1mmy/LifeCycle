@@ -145,6 +145,19 @@ function Products() {
     fetchProducts();
   }
 
+  const [editingProduct, setEditingProduct] = useState(null);
+
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+    setFormData({
+      name: product.item_name,
+      expiryDate: product.expiry,
+      price: product.price,
+      type: product.type
+    });
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="products-container">
       <div className="products-header">
@@ -186,8 +199,9 @@ function Products() {
               </th>
               <th>Name</th>
               <th>Type</th>
-              <th>Expiry Date</th>
+              <th>Expiry</th>
               <th>Price</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -207,6 +221,14 @@ function Products() {
                 <td>{product.type}</td>
                 <td>{product.expiry}</td>
                 <td>${product.price}</td>
+                <td className="actions-cell">
+                  <button 
+                    className="action-button-small"
+                    onClick={() => handleEdit(product)}
+                  >
+                    <Edit2 size={16} />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

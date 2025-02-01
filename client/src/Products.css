@@ -331,3 +331,27 @@
     overflow-x: auto;
   }
 }
+
+.actions-cell {
+    width: 100px;
+    text-align: right;
+    padding-right: 1.5rem !important;
+}
+
+.action-button-small {
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    background: #f3f4f6;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button-small:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
