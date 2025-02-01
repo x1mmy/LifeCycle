@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Dashboard from './MainDashboard';
 import LandingPage from './LandingPage';
 import Products from './Products';
+import Profile from './Profile';
 
 function Home() {
     return <h1>Home Page</h1>;
@@ -27,6 +28,7 @@ function AppContent() {
                 <Route path="/about" element={<About />} />
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </div>
     );

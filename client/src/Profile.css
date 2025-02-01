@@ -1,0 +1,239 @@
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .profile-header {
+    margin-bottom: 32px;
+    text-align: left;
+  }
+  
+  .profile-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .profile-header p {
+    color: #666;
+    margin: 0;
+  }
+  
+  .tabs-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .tab {
+    padding: 8px 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    position: relative;
+  }
+  
+  .tab.active {
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #000;
+  }
+  
+  .form-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px #0000001a;
+    border: 1px solid #e5e5e5;
+  }
+  
+  .form-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-align: left;
+  }
+  
+  .form-container p {
+    color: #666;
+    margin-bottom: 24px;
+    text-align: left;
+    margin-top: 4px;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #000;
+  }
+  
+  .save-button {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+
+  }
+  
+  .save-button:hover {
+    background-color: #333;
+  }
+
+  /* Checkbox label styles */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+  }
+
+  /* Select field styles */
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+  }
+
+  select:focus {
+    outline: none;
+    border-color: #000;
+  }
+
+  /* Preferences styles */
+  .preferences-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .preference-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .preference-info {
+    flex: 1;
+  }
+
+  .preference-info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+    color: #111827;
+    text-align: left;
+
+  }
+
+  .preference-info p {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0;
+  }
+
+  /* Toggle Switch styles */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e5e7eb;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #000;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
