@@ -8,6 +8,14 @@ import Profile from './Profile';
 import Login from './LoginPage'
 import Signup from './SignUp';
 
+function Home() {
+    return <h1>Home Page</h1>;
+}
+
+function About() {
+    return <h1>About Page</h1>;
+}
+
 // Create a wrapper component to handle navbar visibility
 function AppContent() {
     const location = useLocation();
