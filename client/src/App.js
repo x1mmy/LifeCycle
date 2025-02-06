@@ -26,7 +26,7 @@ function AppContent() {
             {showNavbar && <Navbar />}
             <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/home" element={<Home />} />
+                {/* <Route path="/home" element={<Home />} /> */}
                 <Route path="/about" element={<About />} />
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/products" element={<Products />} />
