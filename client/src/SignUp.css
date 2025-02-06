@@ -1,0 +1,138 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .signup-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  
+  .logo-cube {
+    font-size: 24px;
+  }
+  
+  .logo span {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .subtitle {
+    color: #6B7280;
+    margin: 8px 0 24px 0;
+  }
+  
+  .name-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+  }
+  
+  input.error {
+    border-color: #EF4444;
+  }
+  
+  .error-message {
+    color: #EF4444;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  .create-account-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 8px;
+  }
+  
+  .create-account-button:hover {
+    background-color: #4338CA;
+  }
+  
+  .create-account-button:disabled {
+    background-color: #9CA3AF;
+    cursor: not-allowed;
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 24px;
+    color: #111827;
+  }
+  
+  .login-link a {
+    color: #4F46E5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 640px) {
+    .name-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .signup-card {
+      padding: 24px;
+    }
+  }

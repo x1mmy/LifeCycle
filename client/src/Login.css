@@ -1,0 +1,121 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  
+  .logo-cube {
+    font-size: 24px;
+  }
+  
+  .logo span {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .subtitle {
+    color: #6B7280;
+    margin: 8px 0 24px 0;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+  }
+  
+  .sign-in-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .sign-in-button:hover {
+    background-color: #4338CA;
+  }
+  
+  .forgot-password {
+    color: #4F46E5;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  .create-account {
+    text-align: center;
+    margin-top: 24px;
+    color: #6B7280;
+  }
+  
+  .create-account a {
+    color: #4F46E5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .create-account a:hover {
+    text-decoration: underline;
+  }

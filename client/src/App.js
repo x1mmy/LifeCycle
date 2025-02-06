@@ -5,19 +5,13 @@ import Dashboard from './MainDashboard';
 import LandingPage from './LandingPage';
 import Products from './Products';
 import Profile from './Profile';
-
-function Home() {
-    return <h1>Home Page</h1>;
-}
-
-function About() {
-    return <h1>About Page</h1>;
-}
+import Login from './LoginPage'
+import Signup from './SignUp';
 
 // Create a wrapper component to handle navbar visibility
 function AppContent() {
     const location = useLocation();
-    const showNavbar = location.pathname !== '/landing';
+    const showNavbar = !['/landing', '/login', '/signup'].includes(location.pathname);
 
     return (
         <div className="App">
@@ -29,6 +23,9 @@ function AppContent() {
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+
             </Routes>
         </div>
     );

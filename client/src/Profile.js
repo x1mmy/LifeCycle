@@ -191,7 +191,7 @@ const Profile = () => {
             </div>
 
             {/* Dark Mode Setting */}
-            <div className="preference-item">
+            {/* <div className="preference-item">
               <div className="preference-info">
                 <h3>Dark Mode</h3>
                 <p>Toggle between light and dark theme</p>
@@ -207,7 +207,7 @@ const Profile = () => {
                 />
                 <span className="slider round"></span>
               </label>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
