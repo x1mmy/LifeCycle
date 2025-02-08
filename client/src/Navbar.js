@@ -81,7 +81,7 @@ function Navbar() {
                   <Link to="/profile" className="dropdown-item">
                     Profile
                   </Link>
-                  <Link to="/logout" className="dropdown-item">
+                  <Link to="/login" className="dropdown-item">
                     Logout
                   </Link>
                 </div>
